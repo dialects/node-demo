@@ -1,0 +1,8 @@
+{
+  "name": "nodejs-demo",
+  "version": "1.0.0",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa2-cors": "^2.0.6"
+  }
+}
