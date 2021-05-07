@@ -25,6 +25,6 @@ jobs:
       run: docker login --username=${{ secrets.USERNAME }} --password=${{ secrets.PASSWD }} registry.cn-hangzhou.aliyuncs.com
       
     - name: docker
-      run: bash ../../scripts/docker.sh ${{ steps.get_version.outputs.VERSION }}
+      run: bash scripts/docker.sh ${{ steps.get_version.outputs.VERSION }}
       
 
