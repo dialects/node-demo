@@ -1,0 +1,27 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Get version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      
+    - name: login
+      run: docker login --username=${{ secrets.USERNAME }} --password=${{ secrets.PASSWD }} registry.cn-hangzhou.aliyuncs.com
+      
+    - name: docker
+      run: bash scripts/docker.sh ${{ steps.get_version.outputs.VERSION }}
+      
+
