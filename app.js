@@ -5,7 +5,7 @@ const app = new Koa();
 app.use(cors());
 
 app.use(async ctx => {
-  ctx.body = 'Hello World 111111';
+  ctx.body = 'Hello World k8s';
 });
 
 app.listen(3000);
